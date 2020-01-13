@@ -1,6 +1,10 @@
 # Self-discipline-Guide
 vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 
+## 安装node  
+
+## npm install cnpm -g || npm install yarn -g
+
 ### 起步 npm install || yarn install 
 
 ### npm run start启动项目

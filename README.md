@@ -14,4 +14,4 @@ vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 
 3.完成整体逻辑交互(qrcode)
 
-4.
+4.使用现代项目管理方法科科构建

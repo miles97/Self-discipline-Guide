@@ -24,10 +24,7 @@
       <!-- 本日日志   -->
       <div class="datelog">
         <div class="head-date">{{chooseDate}}</div>
-        <div
-          class="weight-date"
-          style="font-size:22px;margin:10px 0;text-align:left;margin: 20px 40px;"
-        >今日质量</div>
+        <div class="weight-date">今日质量</div>
         <el-input v-model="form.weight" @keyup.enter.native="confirmInput" v-if="showInputlabel"></el-input>
         <span v-if="!showInputlabel" @click="showInputlabel=!showInputlabel">{{form.weight}}公斤</span>
         <div class="short-timeline" style="text-align:left;margin: 20px 40px;">
@@ -69,7 +66,7 @@ export default {
       },
       showInputlabel: true, //
       doneItem: [false, false, false, false], //完成某项
-      todolist: ["骂陆鸡鸡", "骂老戴", "学习", "努力"] //默认的当天待办事项
+      todolist: ["记录数据", "安排项目进度", "学习", "努力"] //默认的当天待办事项
       // triggerItem: false //切换夜间模式
     };
   },
@@ -149,5 +146,11 @@ export default {
 }
 .nightwatch {
   filter: contrast(91%) brightness(84%) invert(1);
+}
+.weight-date {
+  font-size: 22px;
+  margin: 10px 0;
+  text-align: left;
+  margin: 20px 40px;
 }
 </style>

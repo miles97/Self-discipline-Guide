@@ -1,6 +1,6 @@
 # Self-discipline-Guide
 vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
-
+同步的push出来的问题文档目录如下[https://github.com/miles97/projectDailyQuestion/blob/master/%E5%9B%BD%E4%BA%BA%E8%87%AA%E5%BE%8B%E6%8C%87%E5%8D%97%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98%E6%96%87%E6%A1%A3.md]
 ## 安装node  
 
 ## npm install -g cnpm --registry=https://registry.npm.taobao.org|| npm install --global yarn

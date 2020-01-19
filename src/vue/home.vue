@@ -1,4 +1,4 @@
-<template>
+<template >
   <div class="main-wrap">
     <el-button
       type="primary"
@@ -6,6 +6,7 @@
       @click="showQRcode=true"
       class="prodQRcode"
     >生成二维码</el-button>
+    <el-button icon="el-icon-magic-stick" @click="setLocalStorage" class="iconnightwatch">切换夜间模式</el-button>
     <div class="hello" @click="tourl('/timeline')">本月行程一览</div>
     <el-divider></el-divider>
     <div class="flex-wrap">
@@ -30,7 +31,8 @@
         <el-input v-model="form.weight" @keyup.enter.native="confirmInput" v-if="showInputlabel"></el-input>
         <span v-if="!showInputlabel" @click="showInputlabel=!showInputlabel">{{form.weight}}公斤</span>
         <div class="short-timeline" style="text-align:left;margin: 20px 40px;">
-          <span style="font-size:22px;margin:10px 0;">今日代办简要</span>
+          <!-- 跳转到番茄时钟代办 -->
+          <span style="font-size:22px;margin:10px 0;" @click="tourl('/singleItem')">今日代办简要</span>
           <div class="list-line" v-for="(item,index) in todolist" :key="item.id">
             <h3
               class="main-subject"
@@ -41,7 +43,7 @@
               <span
                 v-if="!doneItem[index]"
                 style="color: #7FC;font-size: 26px;"
-              >√</span>
+              >✔️</span>
             </h3>
           </div>
         </div>
@@ -52,7 +54,7 @@
 
 <script>
 import qrcode from "@/components/qrcode";
-
+import { mapState } from "vuex";
 export default {
   name: "home",
   data() {
@@ -67,8 +69,8 @@ export default {
       },
       showInputlabel: true, //
       doneItem: [false, false, false, false], //完成某项
-      todolist: ["骂陆鸡鸡", "骂老戴", "学习", "努力"],//默认的当天待办事项
-      
+      todolist: ["骂陆鸡鸡", "骂老戴", "学习", "努力"] //默认的当天待办事项
+      // triggerItem: false //切换夜间模式
     };
   },
   watch: {
@@ -76,11 +78,23 @@ export default {
     // this.chooseDate = val;
     // }
   },
+  computed: mapState({
+    stateObject: state => state.stateObject
+  }),
   components: {
     // Toast
     qrcode
   },
   methods: {
+    setLocalStorage() {
+      // this.triggerItem = !this.triggerItem;
+      let obj = {
+        triggerItem: !this.stateObject.triggerItem
+      };
+      // localStorage.setItem("triggerItem", this.trigerItem);
+      this.$store.commit("stateFn2", obj);
+      console.log(this.stateObject.triggerItem, "!!", obj);
+    },
     pushIndex(idx) {
       this.doneItem[idx] = !this.doneItem[idx];
       this.$set(this.doneItem, idx, this.doneItem[idx]);
@@ -108,7 +122,7 @@ export default {
 
 <style scoped>
 .main-wrap {
-  margin: 2rem 5rem;
+  padding: 5rem;
 }
 .is-selected {
   color: #1989fa;
@@ -132,5 +146,8 @@ export default {
 }
 .nodone {
   color: #fef;
+}
+.nightwatch {
+  filter: contrast(91%) brightness(84%) invert(1);
 }
 </style>

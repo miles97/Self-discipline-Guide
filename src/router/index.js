@@ -21,6 +21,11 @@ export default new Router({
       path: '/timeline',
       name: 'timeline',
       component: resolve => require.ensure([], () => resolve(require('@/vue/timeline')), 'timeline')
+    },
+    {
+      path: '/singleItem',
+      name: 'singleItem',
+      component: resolve => require.ensure([], () => resolve(require('@/components/singleItem')), 'singleItem')
     }
   ]
 })

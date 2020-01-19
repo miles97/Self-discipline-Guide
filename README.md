@@ -24,4 +24,4 @@ vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 
 6.计划内可以推翻重构
 
-7.ddd
+7.

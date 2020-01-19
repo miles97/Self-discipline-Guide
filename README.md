@@ -1,6 +1,7 @@
 # Self-discipline-Guide
+# 个人自律指南
 vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
-
+同步的push出来的问题文档目录[点击这里](https://github.com/miles97/projectDailyQuestion/blob/master/disciplineSync.md)
 ## 安装node  
 
 ## npm install -g cnpm --registry=https://registry.npm.taobao.org|| npm install --global yarn
@@ -24,4 +25,4 @@ vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 
 6.计划内可以推翻重构
 
-7.ddd
+7.

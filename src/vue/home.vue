@@ -24,7 +24,7 @@
       <!-- 本日日志   -->
       <div class="datelog">
         <div class="head-date">{{chooseDate}}</div>
-        <div class="weight-date">今日质量</div>
+        <div class="weight-date" @click="goIndex">今日质量</div>
         <el-input v-model="form.weight" @keyup.enter.native="confirmInput" v-if="showInputlabel"></el-input>
         <span v-if="!showInputlabel" @click="showInputlabel=!showInputlabel">{{form.weight}}公斤</span>
         <div class="short-timeline" style="text-align:left;margin: 20px 40px;">
@@ -122,6 +122,9 @@ export default {
     //确认输入的东西
     confirmInput() {
       this.showInputlabel = false;
+    },
+    goIndex(){
+      this.tourl('/index')
     }
   },
   created() {

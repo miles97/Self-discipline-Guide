@@ -5,7 +5,7 @@ import Home from '@/vue/home'
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
+  mode: 'history',
   routes: [
     // {
     //   path: '/',
@@ -26,6 +26,11 @@ export default new Router({
       path: '/singleItem',
       name: 'singleItem',
       component: resolve => require.ensure([], () => resolve(require('@/components/singleItem')), 'singleItem')
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: resolve => require.ensure([], () => resolve(require('@/vue/index')), 'index')
     }
   ]
 })

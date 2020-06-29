@@ -13,7 +13,7 @@ vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 ### npm run start启动项目
 
 
-## 代  办 事 项
+## 代  办  事  项
 
 1.项目原型构建✔
 

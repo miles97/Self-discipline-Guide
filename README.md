@@ -8,7 +8,7 @@ vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 
 (如果不能使用,提示在此系统中禁止执行脚本，打开powerShell执行set-executionpolicy remotesigned ,输入Y回车) 重启项目即可
 
-### 起步 npm install || yarn install 
+### 起  步 npm install || yarn install 
 
 ### npm run start启动项目
 

@@ -1,4 +1,8 @@
-# Self-discipline-Guide
+2020.8.3 项目重组
+
+## 个人项全栈项目搭建
+
+Self-discipline-Guide
 # 个人自律指南
 vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 同步的push出来的问题文档目录[点击这里](https://github.com/miles97/projectDailyQuestion/blob/master/disciplineSync.md)

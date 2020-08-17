@@ -8,7 +8,7 @@ vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 同步的push出来的问题文档目录[点击这里](https://github.com/miles97/projectDailyQuestion/blob/master/disciplineSync.md)
 ## 安装node  
 
-## npm install -g cnpm --registry=https://registry.npm.taobao.org|| npm install --global yarn
+## npm install -g cnpm --registry=https://registry.npm.taobao.org  || npm install --global yarn
 
 (如果不能使用,提示在此系统中禁止执行脚本，打开powerShell执行set-executionpolicy remotesigned ,输入Y回车) 重启项目即可
 
@@ -61,3 +61,4 @@ vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 
 21.设计交互优先实现靠边❌
 
+22.产品概念先行

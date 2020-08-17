@@ -6,16 +6,17 @@
       @click="showQRcode=true"
       class="prodQRcode"
     >生成二维码</el-button>
-    <el-button icon="el-icon-magic-stick" @click="setLocalStorage" class="iconnightwatch">切换夜间模式</el-button>
+    <el-button icon="el-icon-magic-stick" @click="setStore" class="iconnightwatch">切换夜间模式</el-button>
     <div class="hello" @click="tourl('/timeline')">本月行程一览</div>
     <el-divider></el-divider>
     <div class="flex-wrap">
       <el-calendar style="max-width:500px;">
-        <template slot="dateCell" slot-scope="{date, data}">
+        <template slot="dateCell" slot-scope="{ date, data}">
           <p
             :class="data.isSelected ? 'is-selected' : ''"
             @click="addItem(data)"
-          >{{ data.day.split('-').slice(2).join("") }} {{ data.isSelected ? '✔️' : ''}}{{datalist[data.day]||null}}</p>
+          >{{splitfun(data.day )}} {{ data.isSelected ? '✔️' : ''}}{{datalist[data.day]||null}}</p>
+          <!-- 这里使用computed优化 -->
         </template>
       </el-calendar>
       <el-dialog :visible.sync="showQRcode" width="30%" center>
@@ -29,7 +30,7 @@
         <span v-if="!showInputlabel" @click="showInputlabel=!showInputlabel">{{form.weight}}公斤</span>
         <div class="short-timeline" style="text-align:left;margin: 20px 40px;">
           <!-- 跳转到番茄时钟代办 -->
-          <span style="font-size:22px;margin:10px 0;" @click="tourl('/singleItem')">今日代办简要</span>
+          <span class="name_space" @click="tourl('/singleItem')">今日代办简要</span>
           <div class="list-line" v-for="(item,index) in todolist" :key="item.id">
             <h3
               class="main-subject"
@@ -39,7 +40,7 @@
               {{index+1}}:{{item}}
               <span
                 v-if="!doneItem[index]"
-                style="color: #7FC;font-size: 26px;"
+                class="spanstylesheet"
               >✔️</span>
             </h3>
           </div>
@@ -66,7 +67,8 @@ export default {
       },
       showInputlabel: true, //
       doneItem: [false, false, false, false], //完成某项
-      todolist: ["记录数据", "安排项目进度", "学习", "努力"] //默认的当天待办事项
+      todolist: ["记录数据", "安排项目进度", "学习", "努力"] 
+      // 默认的当天待办事项
       // triggerItem: false //切换夜间模式
       // 通过数组形式的操作实现内容的切换以及图表的算法展示
       // 通过不同程度的合计算法，展示财务的健康状况等等
@@ -77,7 +79,12 @@ export default {
       // 通过比率阈值判定对应支出或者单项存在的风险等。
       // 未来可以通过开发能力进行数据的自动收集和录入
       // Node.js + mongodb + vue.js + elementui + vue-eharts + webpack
+      
       /*
+      核心问题是echarts是数据驱动的图表，目前跟项目重合度较低，所以暂时用不到相关技术展，同时
+      因为本项目目前不涉及后台管理系统。项目的出发点完全使用与对于项目的优化以及产品需求实现上
+      有限。
+      项目使用react构建，实际上基本相当于使用
         monggodb直接存储服务器，通过简单的数据交互完成需求
         在服务器上部署node.js以及完整服务
       */
@@ -88,30 +95,34 @@ export default {
     // this.chooseDate = val;
     // }
   },
-  computed: mapState({
+  computed:{
+    ...mapState({
     stateObject: state => state.stateObject
-  }),
+    }),
+    splitfun(val){
+        return val.split('-').slice(2).join("")
+    }
+  },
   components: {
     // Toast
     qrcode
   },
   methods: {
-    setLocalStorage() {
-      // this.triggerItem = !this.triggerItem;
+    setStore() {
       let obj = {
         triggerItem: !this.stateObject.triggerItem
       };
-      // localStorage.setItem("triggerItem", this.trigerItem);
-      this.$store.commit("stateFn2", obj);
-      console.log(this.stateObject.triggerItem, "!!", obj);
+      this.$store.commit("triggerItem", obj);
+      // console.log(this.stateObject.triggerItem, "!!", obj);
     },
     pushIndex(idx) {
       this.doneItem[idx] = !this.doneItem[idx];
+      //直接使用set进行数据的替换操作
       this.$set(this.doneItem, idx, this.doneItem[idx]);
       console.log(this.doneItem);
     },
     addItem(data) {
-      console.log(data);
+      // console.log(data);
       Object.assign(this.datalist, { [data.day]: "XX行程" });
       this.chooseDate = data.day; //date
       // console.log(this.datalist, this.datalist[data.day], data.day);
@@ -124,7 +135,8 @@ export default {
       this.showInputlabel = false;
     },
     goIndex(){
-      this.tourl('/index')
+      //
+      this.tourl('/index');//使用路由封装进行跳转页面
     }
   },
   created() {
@@ -168,5 +180,11 @@ export default {
   margin: 10px 0;
   text-align: left;
   margin: 20px 40px;
+}
+.name_space{
+  font-size:22px;margin:10px 0;
+}
+.spanstylesheet{
+color: #7FC;font-size: 26px;
 }
 </style>

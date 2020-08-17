@@ -20,7 +20,7 @@ let store = new Vuex.Store({
 				}
 			}
 		},
-		stateFn2(state, source) {
+		triggerItem(state, source) {
 			Object.assign(state.stateObject, source);
 		}
 	}

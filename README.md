@@ -3,10 +3,23 @@
 ## 个人项全栈项目搭建
 
 Self-discipline-Guide
-# 个人自律指南
-vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
-同步的push出来的问题文档目录[点击这里](https://github.com/miles97/projectDailyQuestion/blob/master/disciplineSync.md)
-## 安装node  
+# 主要技术展
+Vue(伪3.0 vue-property-decorator) + Vuex + vue-router + Typescript + webpack4.0 + element-ui
+
+或者
+
+react + redux + typescript + webpack + ant-design(antd) 构建的2c的web版本
+
+
+使用以上技术构建的构建的睿智个人自律管理单页面应用
+同步的push出来的问题文档目录
+
+//废弃  之后出同步使用的当下技术栈构建的页面代码
+[点击这里](https://github.com/miles97/projectDailyQuestion/blob/master/disciplineSync.md)
+
+### 使用起步说明
+
+## node  
 
 ## npm install -g cnpm --registry=https://registry.npm.taobao.org  || npm install --global yarn
 
@@ -18,6 +31,13 @@ vue+vue-cli+webpack+element-ui构建的睿智个人自律管理单页面应用
 
 
 ## 代  办  事  项
+
+//即刻网页版社交推送尝试  选择使用vue或者react尝试构建页面 由于目前对应的to C以及WEB页面构建的相对比较少，同时react也没有
+实践项目，TS应用层方面涉及的也不是很多，技术架构方面沿用相同的架构。
+
+然后简单假设一个以社交逻辑向为主的应用，理解社交产品逻辑以及移动先行逻辑下web产品的基本形态，对未来提供更多的可能性。
+
+
 
 1.项目原型构建✔
 

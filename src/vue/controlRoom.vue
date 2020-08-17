@@ -1,6 +1,10 @@
 <template>
   <div class="qrcode">
-
+    <div class="container">
+      <div class="wrap-name">
+        社交灵感相关的即刻web尝试
+      </div>
+    </div>
   </div>
 </template>
 

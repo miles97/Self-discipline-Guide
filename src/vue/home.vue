@@ -38,10 +38,7 @@
               :class="{'doneline':doneItem[index]}"
             >
               {{index+1}}:{{item}}
-              <span
-                v-if="!doneItem[index]"
-                class="spanstylesheet"
-              >✔️</span>
+              <span v-if="!doneItem[index]" class="spanstylesheet">✔️</span>
             </h3>
           </div>
         </div>
@@ -63,11 +60,11 @@ export default {
       showQRcode: false,
       chooseDate: "", //保存选中的日期
       form: {
-        weight: 60 //默认60公斤
+        weight: 60, //默认60公斤
       },
       showInputlabel: true, //
       doneItem: [false, false, false, false], //完成某项
-      todolist: ["记录数据", "安排项目进度", "学习", "努力"] 
+      todolist: ["记录数据", "安排项目进度", "学习", "努力"],
       // 默认的当天待办事项
       // triggerItem: false //切换夜间模式
       // 通过数组形式的操作实现内容的切换以及图表的算法展示
@@ -79,7 +76,7 @@ export default {
       // 通过比率阈值判定对应支出或者单项存在的风险等。
       // 未来可以通过开发能力进行数据的自动收集和录入
       // Node.js + mongodb + vue.js + elementui + vue-eharts + webpack
-      
+
       /*
       核心问题是echarts是数据驱动的图表，目前跟项目重合度较低，所以暂时用不到相关技术展，同时
       因为本项目目前不涉及后台管理系统。项目的出发点完全使用与对于项目的优化以及产品需求实现上
@@ -95,22 +92,22 @@ export default {
     // this.chooseDate = val;
     // }
   },
-  computed:{
+  computed: {
     ...mapState({
-    stateObject: state => state.stateObject
+      stateObject: (state) => state.stateObject,
     }),
-    splitfun(val){
-        return val.split('-').slice(2).join("")
-    }
+    splitfun(val) {
+      return val.split("-").slice(2).join("");
+    },
   },
   components: {
     // Toast
-    qrcode
+    qrcode,
   },
   methods: {
     setStore() {
       let obj = {
-        triggerItem: !this.stateObject.triggerItem
+        triggerItem: !this.stateObject.triggerItem,
       };
       this.$store.commit("triggerItem", obj);
       // console.log(this.stateObject.triggerItem, "!!", obj);
@@ -134,14 +131,14 @@ export default {
     confirmInput() {
       this.showInputlabel = false;
     },
-    goIndex(){
+    goIndex() {
       //
-      this.tourl('/index');//使用路由封装进行跳转页面
-    }
+      this.tourl("/index"); //使用路由封装进行跳转页面
+    },
   },
   created() {
     // Toast('??')
-  }
+  },
 };
 </script>
 
@@ -181,10 +178,12 @@ export default {
   text-align: left;
   margin: 20px 40px;
 }
-.name_space{
-  font-size:22px;margin:10px 0;
+.name_space {
+  font-size: 22px;
+  margin: 10px 0;
 }
-.spanstylesheet{
-color: #7FC;font-size: 26px;
+.spanstylesheet {
+  color: #7fc;
+  font-size: 26px;
 }
 </style>

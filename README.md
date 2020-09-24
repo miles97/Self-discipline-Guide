@@ -30,7 +30,7 @@ react + redux + typescript + webpack + ant-design(antd) 构建的2c的web版本
 ### npm run start启动项目
 
 
-## 代  办  事  项
+## 代办事项
 
 //即刻网页版社交推送尝试  选择使用vue或者react尝试构建页面 由于目前对应的to C以及WEB页面构建的相对比较少，同时react也没有
 实践项目，TS应用层方面涉及的也不是很多，技术架构方面沿用相同的架构。

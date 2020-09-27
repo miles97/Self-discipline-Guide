@@ -1,8 +1,8 @@
-2020.8.3 项目重组23
 
-## 个人项全栈项目搭建
 
-Self-discipline-Guide
+## Self-discipline-Guide 国人自律指南
+
+
 # 主要技术展
 Vue(伪3.0 vue-property-decorator) + Vuex + vue-router + Typescript + webpack4.0 + element-ui
 
